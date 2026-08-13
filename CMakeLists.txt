@@ -16,4 +16,11 @@ add_executable(Simularea_Populatiei main.cpp
         model/MortalityCalculator.cpp
         model/MortalityCalculator.h
         model/Population.cpp
-        model/Population.h)
+        model/Population.h
+        events/Event.h
+        events/EpidemicEvent.cpp
+        events/EpidemicEvent.h
+        events/BabyBoom.cpp
+        events/BabyBoom.h
+        events/NaturalDisasterEvent.cpp
+        events/NaturalDisasterEvent.h)
