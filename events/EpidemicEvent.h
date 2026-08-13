@@ -8,7 +8,7 @@
 #include "Event.h"
 #include "../configs/Range.h"
 
-class EpidemicEvent {
+class EpidemicEvent : public Event {
     public:
     //lossrange e interval min max
 
