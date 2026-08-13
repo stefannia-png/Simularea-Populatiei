@@ -7,6 +7,7 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 class YearRecord {
 public:
     YearRecord(int year, long long population, std::string eventDescription = "");
@@ -24,6 +25,7 @@ private:
     int year_;
     long long population_;
     std::string eventDescription_; // gol daca nu s-a intamplat niciun eveniment
+    std::vector<std::string> subLogs_;
 };
 
 #endif //SIMULAREA_POPULATIEI_YEARRECORD_H

@@ -16,6 +16,6 @@ std::string BabyBoomEvent::apply(Population& population) const {
  
     std::ostringstream description;
     description << std::fixed << std::setprecision(1);
-    description << "Baby Boom: rata natalitatii a crescut permanent cu " << increasePercent << "%";
+    description << "\n ---- \n Baby Boom: rata natalitatii a crescut cu " << increasePercent << "% \n ---- \n";
     return description.str();
 }

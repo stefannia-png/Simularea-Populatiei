@@ -12,7 +12,7 @@
 
 class BabyBoomEvent : public Event {
 public:
-    explicit BabyBoomEvent(Range<double> increaseRange = Range<double>(1.0, 2.5));
+    explicit BabyBoomEvent(Range<double> increaseRange = Range<double>(10.0, 15.5));
 
     std::string getName() const override;
     std::string apply(Population& population) const override;

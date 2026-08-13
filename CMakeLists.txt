@@ -42,4 +42,5 @@ add_executable(Simularea_Populatiei
 
         display/ConsoleDisplay.h
         display/ConsoleInputHandler.h
-        save/ReportGenerator.h)
+        save/ReportGenerator.h
+        display/TextGenerator.h)

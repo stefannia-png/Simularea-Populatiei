@@ -16,6 +16,7 @@ long long Population::getCurrentPopulation() const { return currentPopulation_; 
 double Population::getBirthRate() const { return birthRate_; }
 double Population::getDeathRate() const { return deathRate_; }
 
+/*
 long long Population::applyNaturalGrowth() {
     long long births = NatalityCalculator::computeBirths(currentPopulation_, birthRate_);
     long long deaths = MortalityCalculator::computeDeaths(currentPopulation_, deathRate_);
@@ -28,6 +29,36 @@ long long Population::applyNaturalGrowth() {
 
     return netChange;
 }
+*/
+
+
+
+//////
+long long  Population::applyNaturalGrowth() {
+    long long births = NatalityCalculator::computeBirths(currentPopulation_, birthRate_);
+    long long deaths = MortalityCalculator::computeDeaths(currentPopulation_, deathRate_);
+
+    // --- COD NOU: Factor de suprapopulare ---
+    // Setează o capacitate maximă de suport a lumii (ex: 5.000 sau 10.000 locuitori)
+    double maxCapacity = 5000.0;
+
+    if (currentPopulation_ > maxCapacity) {
+        // Dacă populația depășește capacitatea, cresc morțile din cauza lipsei de resurse
+        double overcrowding = (double)currentPopulation_ / maxCapacity;
+        deaths = static_cast<long long>(deaths * overcrowding * 1.5);
+    }
+    // ----------------------------------------
+
+    long long netChange = births - deaths;
+    currentPopulation_ += netChange;
+
+    if (currentPopulation_ < 0) {
+        currentPopulation_ = 0;
+    }
+
+    return netChange;
+}
+//////
 
 void Population::adjustByPercent(double percent) {
     // percent = -12.0 inseamna "scade populatia cu 12%"
@@ -36,10 +67,26 @@ void Population::adjustByPercent(double percent) {
     currentPopulation_ = std::max<long long>(0, currentPopulation_);
 }
 
+/*
 void Population::increaseBirthRate(double deltaFraction) {
     birthRate_ += deltaFraction;
     birthRate_ = std::max(0.0, birthRate_); // rata nu poate fi negativa
 }
+*/
+
+//////
+void Population::increaseBirthRate(double percent) {
+    birthRate_ += percent;
+
+    // LIMITA: Rata natalității nu va putea depăși 8% (0.08) per an,
+    // prevenind multiplicarea exponențială infinită
+    if (birthRate_ > 0.08) { // 8% este deja o natalitate foarte mare
+        birthRate_ = 0.08;
+    }
+}
+//////
+
+
 
 void Population::increaseDeathRate(double deltaFraction) {
     deathRate_ += deltaFraction;

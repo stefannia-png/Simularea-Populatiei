@@ -10,7 +10,7 @@
 
 class NaturalDisasterEvent : public Event {
 public:
-    NaturalDisasterEvent(Range<double> lossRange = Range<double>(10.0, 22.0));
+    NaturalDisasterEvent(Range<double> lossRange = Range<double>(30.0, 50.0));
 
     std::string getName() const override;
     std::string apply(Population& population) const override;

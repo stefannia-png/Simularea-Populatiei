@@ -1,3 +1,4 @@
+
 #include "SimulationHistory.h"
 #include <algorithm>
 #include <limits>
@@ -39,3 +40,6 @@ int SimulationHistory::countYearsWithEvents() const {
     }
     return count;
 }
+
+
+

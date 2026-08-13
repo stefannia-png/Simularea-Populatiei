@@ -15,7 +15,7 @@ std::string NaturalDisasterEvent::apply(Population& population) const {
  
     std::ostringstream description;
     description << std::fixed << std::setprecision(1);
-    description << "Cutremur: populatia a scazut cu " << lossPercent << "%";
+    description << "\n ---- \n Cutremur: populatia a scazut cu " << lossPercent << "% \n ---- \n";
     return description.str();
 }
  
