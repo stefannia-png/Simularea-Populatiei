@@ -16,7 +16,7 @@ public:
         std::cout << "Ani simulati: " << history.getYearsSimulated() << "\n";
         std::cout << "Populatie Maxima: " << history.getMaxPopulation() << "\n";
         //std::cout << "Populatie Minima: " << history.getMinPopulation() << "\n";
-        std::cout << "Ani cu evenimente: " << history.countYearsWithEvents() << "\n";
+        std::cout << "Ani cu evenimente speciale: " << history.countYearsWithEvents() << "\n";
     }
 };
 

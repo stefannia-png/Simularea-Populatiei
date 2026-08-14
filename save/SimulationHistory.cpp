@@ -34,9 +34,14 @@ long long SimulationHistory::getMinPopulation() const {
 int SimulationHistory::countYearsWithEvents() const {
     int count = 0;
     for (const auto& record : records_) {
-        if (record.hasEvent()) {
+        const std::string& desc = record.getEventDescription();
+
+        if (!desc.empty() &&
+           (desc.find("Epidemie") != std::string::npos ||
+            desc.find("Baby Boom") != std::string::npos ||
+            desc.find("Dezastru") != std::string::npos)) {
             count++;
-        }
+            }
     }
     return count;
 }

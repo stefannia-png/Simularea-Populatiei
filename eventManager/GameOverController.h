@@ -9,7 +9,6 @@
 
 class GameOverController {
 public:
-    // Verifica daca simularea trebuie oprita ex: populatie 0
     static bool isGameOver(const Population& population);
 };
 

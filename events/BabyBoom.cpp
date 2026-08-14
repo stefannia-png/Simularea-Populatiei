@@ -10,12 +10,12 @@ std::string BabyBoomEvent::getName() const {
  
 std::string BabyBoomEvent::apply(Population& population) const {
     double increasePercent = increaseRange_.getRandomValue(); // ex: 1.5%
-    double increaseFraction = increasePercent / 100.0;        // convertim in fractie (0.015)
+    double increaseFraction = increasePercent / 100.0;        // convertim in fractie 0.015
  
     population.increaseBirthRate(increaseFraction);
  
     std::ostringstream description;
     description << std::fixed << std::setprecision(1);
-    description << "\n ---- \n Baby Boom: rata natalitatii a crescut cu " << increasePercent << "% \n ---- \n";
+    description << " ---- \n Baby Boom: rata natalitatii a crescut cu " << increasePercent << "% \n ---- ";
     return description.str();
 }

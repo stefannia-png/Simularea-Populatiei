@@ -10,20 +10,15 @@
 
 class SimulationHistory {
 public:
-    // Adauga o noua inregistrare de an la finalul istoricului
     void addRecord(const YearRecord& record);
 
-    // Acces la toate inregistrarile (doar citire)
     const std::vector<YearRecord>& getRecords() const;
 
-    // Numarul total de ani simulati pana acum
     int getYearsSimulated() const;
 
-    // Populatia maxima/minima atinsa pe parcursul simularii
     long long getMaxPopulation() const;
     long long getMinPopulation() const;
 
-    // Numarul de ani in care s-a declansat un eveniment
     int countYearsWithEvents() const;
 
 private:

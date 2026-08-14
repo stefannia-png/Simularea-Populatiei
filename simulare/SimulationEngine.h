@@ -11,18 +11,14 @@
 #include "../save/SimulationHistory.h"
 #include "../save/YearRecord.h"
 
-//bag pula ca nu scosai simulation history
-
 
 class SimulationEngine {
 public:
     SimulationEngine(const SimulationConfig& config, EventManager eventManager);
 
-    // Avanseaza simularea cu 1 an sau cu N ani
     YearRecord advanceOneYear();
     std::vector<YearRecord> advanceYears(int numberOfYears);
 
-    // Getteri inline
     const Population& getPopulation() const { return population_; }
     const SimulationHistory& getHistory() const { return history_; }
     int getCurrentYear() const { return currentYear_; }

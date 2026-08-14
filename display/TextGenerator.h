@@ -28,7 +28,7 @@ public:
             "O boala sezoniera a rapus {val} oameni."
         };
 
-        // Sabloane neutre / evenimente de fundal (fara impact masiv pe populatie)
+        // Sabloane neutre
         neutralTemplates_ = {
             "Grupuri de cercetatori raporteaza o stabilitate a resurselor.",
             "Rutele comerciale au fost extinse in regiunile vecine.",
@@ -37,7 +37,7 @@ public:
         };
     }
 
-    // Genereaza un rand de text in functie de tipul de impact (+, - sau neutral)
+    // Genereaza un rand de text in functie de tipul de impact
     std::string getRandomLog(long long change) {
         std::string templateStr;
 

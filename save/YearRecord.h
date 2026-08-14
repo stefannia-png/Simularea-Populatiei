@@ -17,14 +17,12 @@ public:
     const std::string& getEventDescription() const;
     bool hasEvent() const;
 
-    // Suprascriere operator<< pentru afisare directa (Lab: supraincarcarea
-    // operatorilor). Ex: std::cout << yearRecord;
     friend std::ostream& operator<<(std::ostream& out, const YearRecord& record);
 
 private:
     int year_;
     long long population_;
-    std::string eventDescription_; // gol daca nu s-a intamplat niciun eveniment
+    std::string eventDescription_;
     std::vector<std::string> subLogs_;
 };
 

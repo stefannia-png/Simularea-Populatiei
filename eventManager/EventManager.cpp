@@ -25,9 +25,8 @@ const Event* EventManager::pickRandomEvent() const {
 }
 
 std::string EventManager::maybeTriggerEvent(Population& population) const {
-    // Verificam daca se declanseaza un eveniment anul acesta
     if (RandomGenerator::randomRange(0.0, 100.0) > triggerChancePercent_) {
-        return ""; // Nu s-a declanșat evenimentul anul acesta
+        return "";
     }
 
     const Event* chosenEvent = pickRandomEvent();
@@ -43,7 +42,16 @@ EventManager createDefaultEventManager() {
 
     manager.registerEvent(std::make_unique<EpidemicEvent>());
     manager.registerEvent(std::make_unique<BabyBoomEvent>());
-    manager.registerEvent(std::make_unique<NaturalDisasterEvent>());
+
+
+    // Cutremur
+    manager.registerEvent(std::make_unique<NaturalDisasterEvent>(Range<double>(10.0, 25.0), "Cutremur"));
+
+    // Tsunami
+    manager.registerEvent(std::make_unique<NaturalDisasterEvent>(Range<double>(20.0, 45.0), "Tsunami"));
+
+    // Erupție vulcanica
+    manager.registerEvent(std::make_unique<NaturalDisasterEvent>(Range<double>(5.0, 15.0), "Eruptie Vulcanica"));
 
     return manager;
 }

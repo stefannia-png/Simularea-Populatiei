@@ -10,7 +10,6 @@
 
 class EpidemicEvent : public Event {
     public:
-    //lossrange e interval min max
 
     EpidemicEvent(Range<double> lossRange=Range<double>(8.0,18.0));
     std::string getName() const override;

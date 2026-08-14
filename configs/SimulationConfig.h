@@ -3,16 +3,14 @@
 
 class SimulationConfig {
 public:
-    // Constructors
+
     SimulationConfig();
     SimulationConfig(long long initialPopulation, double birthRate, double deathRate);
 
-    // Getters
     long long getInitialPopulation() const;
     double getBirthRate() const;
     double getDeathRate() const;
 
-    // Setters (fixed: removed 'const' and changed return type to void)
     void setInitialPopulation(long long value);
     void setBirthRate(double value);
     void setDeathRate(double value);

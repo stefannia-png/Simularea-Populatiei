@@ -17,7 +17,6 @@ std::string EpidemicEvent::getName() const {
 
 std::string EpidemicEvent::apply(Population& population) const {
     double lossPercent = lossRange_.getRandomValue(); // ex: val random de 12.3%
-
     //
     long long current = population.getCurrentPopulation();
     long long victims = static_cast<long long>(current * (lossPercent / 100.0));
@@ -30,14 +29,11 @@ std::string EpidemicEvent::apply(Population& population) const {
     population -= victims;
 
     population.increaseDeathRate((lossPercent / 10.0) / 100.0);
-
-    //population.adjustByPercent(-lossPercent); // adica scadem populatia
-
     //
 
 
     std::ostringstream description;
     description << std::fixed << std::setprecision(1);
-    description << "\n ---- \n Epidemie: populatia a scazut cu " << lossPercent << "% \n ---- \n";
+    description << " ---- \n Epidemie: populatia a scazut cu " << lossPercent << "% \n ---- ";
     return description.str();
 }
