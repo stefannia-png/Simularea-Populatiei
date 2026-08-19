@@ -30,12 +30,6 @@ YearRecord SimulationEngine::advanceOneYear() {
         eventDescription += textGen.getRandomLog(microChange);
     }
 
-    /*
-    YearRecord record(currentYear_, population_.getCurrentPopulation(), eventDescription);
-    history_.addRecord(record);
-    */
-
-
     long long finalPop = population_.getCurrentPopulation() < 0 ? 0 : population_.getCurrentPopulation();
     YearRecord record(currentYear_, finalPop, eventDescription);
     history_.addRecord(record);

@@ -40,7 +40,6 @@ public:
         std::cout << "  CONFIGURARE CIVILIZATIE CUSTOM\n";
         std::cout << "====================================\n";
 
-        // --- Initial Population ---
         do {
             std::cout << "Introduce populatia initiala (minim 2): ";
             std::cin >> population;
@@ -49,7 +48,6 @@ public:
             }
         } while (population < 2);
 
-        // --- Birth Rate ---
         do {
             std::cout << "Introduce rata natalitatii (intre 0.0 si 1.0, ex: 0.05): ";
             std::cin >> birthRate;
@@ -58,7 +56,6 @@ public:
             }
         } while (birthRate < 0.0 || birthRate > 1.0);
 
-        // --- Death Rate ---
         do {
             std::cout << "Introduce rata mortalitatii (intre 0.0 si 1.0, ex: 0.02): ";
             std::cin >> deathRate;
