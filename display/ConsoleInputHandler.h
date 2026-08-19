@@ -32,7 +32,7 @@ public:
     SimulationConfig readCustomConfig() const {
         SimulationConfig config;
 
-        long long initialPop = 0;
+        long long population = 0;
         double birthRate = 0.0;
         double deathRate = 0.0;
 
@@ -40,18 +40,36 @@ public:
         std::cout << "  CONFIGURARE CIVILIZATIE CUSTOM\n";
         std::cout << "====================================\n";
 
-        std::cout << "\n Introduce populatia initiala (ex: 1000): ";
-        std::cin >> initialPop;
+        // --- Initial Population ---
+        do {
+            std::cout << "Introduce populatia initiala (minim 2): ";
+            std::cin >> population;
+            if (population < 2) {
+                std::cout << "Valoare invalida! Numarul minim de locuitori este 2.\n";
+            }
+        } while (population < 2);
 
-        std::cout << "Introduce rata natalitatii (ex: 0.05 pentru 5%): ";
-        std::cin >> birthRate;
+        // --- Birth Rate ---
+        do {
+            std::cout << "Introduce rata natalitatii (intre 0.0 si 1.0, ex: 0.05): ";
+            std::cin >> birthRate;
+            if (birthRate < 0.0 || birthRate > 1.0) {
+                std::cout << "Valoare invalida! Rata trebuie sa fie intre 0 si 1 (0% - 100%).\n";
+            }
+        } while (birthRate < 0.0 || birthRate > 1.0);
 
-        std::cout << "Introduce rata mortalitatii (ex: 0.02 pentru 2%): ";
-        std::cin >> deathRate;
+        // --- Death Rate ---
+        do {
+            std::cout << "Introduce rata mortalitatii (intre 0.0 si 1.0, ex: 0.02): ";
+            std::cin >> deathRate;
+            if (deathRate < 0.0 || deathRate > 1.0) {
+                std::cout << "Valoare invalida! Rata trebuie sa fie intre 0 si 1 (0% - 100%).\n";
+            }
+        } while (deathRate < 0.0 || deathRate > 1.0);
 
         std::cin.ignore(10000, '\n');
 
-        config.setInitialPopulation(initialPop);
+        config.setInitialPopulation(population);
         config.setBirthRate(birthRate);
         config.setDeathRate(deathRate);
 
@@ -64,6 +82,5 @@ public:
         return line;
     }
 };
-
 
 #endif //SIMULAREA_POPULATIEI_CONSOLEINPUTHANDLER_H
